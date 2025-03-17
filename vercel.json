@@ -1,4 +1,17 @@
 {
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    },
+    {
+      "src": "api/*.py",
+      "use": "@vercel/python"
+    }
+  ],
   "routes": [
     {
       "src": "/api/(.*)",
@@ -12,10 +25,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html",
-      "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-      }
+      "dest": "/index.html"
     }
   ]
 }
