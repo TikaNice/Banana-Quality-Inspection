@@ -94,3 +94,10 @@ def predict():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+# For vercel
+def vercel_handler(request):
+    return app(request)
+
+# 导出供 Vercel 使用
+application = app
