@@ -4,15 +4,14 @@
       "src": "api/*.py",
       "use": "@vercel/python",
       "config": {
-        "maxLambdaSize": "50mb",
-        "includeFiles": "model_and_use.py"
+        "maxLambdaSize": "50mb"
       }
     },
     {
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist"
+        "distDir": "dist"  
       }
     }
   ],
@@ -20,12 +19,7 @@
     {
       "src": "/api/(.*)",
       "dest": "/api/banana.py",
-      "methods": ["POST", "OPTIONS"],
-      "headers": {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type"
-      }
+      "methods": ["POST", "OPTIONS"]
     },
     {
       "src": "/(.*)",
