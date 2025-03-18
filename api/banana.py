@@ -4,7 +4,9 @@ from werkzeug.utils import secure_filename
 import os
 import tempfile
 from model_and_use import banana_model
-from serverless_http import handle
+
+def vercel_handler(request):
+    return handle(app)(request)
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
